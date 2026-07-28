@@ -23,14 +23,13 @@ jobs:
         uses: android-actions/setup-android@v3
 
       - name: Make gradlew executable
-        run: chmod +x ICAIApp/gradlew
+        run: chmod +x gradlew
 
       - name: Build debug APK
-        working-directory: ICAIApp
         run: ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: icai-batch-checker
-          path: ICAIApp/app/build/outputs/apk/debug/app-debug.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
